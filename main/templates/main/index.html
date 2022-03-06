@@ -1,0 +1,64 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block add %}
+nav-link
+{% endblock %}
+
+{% block main %}
+nav-link active
+{% endblock %}
+
+{% block film %}
+nav-link
+{% endblock %}
+
+{% block litera %}
+nav-link
+{% endblock %}
+
+{% block maths %}
+nav-link
+{% endblock %}
+
+{% block content %}
+        {% for el in task %}
+             <div class="card" style="width: 18rem; min-width: 100%; margin-top: 50px">
+                  <img class="card-img-top" src="{{ el.link }}" alt="Card image cap">
+                  <div class="card-body" >
+                    <h5 class="card-title">{{ el.title }}</h5>
+                    <p class="card-text" style="text-align: left">{{ el.description}}</p>
+                  </div>
+            </div>
+        {% endfor %}
+        {% for el in task2 %}
+             <div class="card" style="width: 18rem; min-width: 100%; margin-top: 50px">
+                  <img class="card-img-top" src="{{ el.link }}" alt="Card image cap">
+                  <div class="card-body" >
+                    <h5 class="card-title">{{ el.title }}</h5>
+                    <p class="card-text" style="text-align: left">{{ el.description}}</p>
+                  </div>
+            </div>
+        {% endfor %}
+        {% for el in task3 %}
+             <div class="card" style="width: 18rem; min-width: 100%; margin-top: 50px">
+                  <img class="card-img-top" src="{{ el.link }}" alt="Card image cap">
+                  <div class="card-body" >
+                    <h5 class="card-title">{{ el.title }}</h5>
+                    <p class="card-text" style="text-align: left">{{ el.description}}</p>
+                  </div>
+            </div>
+        {% endfor %}
+        {% for el in task4 %}
+             <div class="card" style="width: 18rem; min-width: 100%; margin-top: 50px">
+                  <img class="card-img-top" src="{{ el.link }}" alt="Card image cap">
+                  <div class="card-body" >
+                    <h5 class="card-title">{{ el.title }}</h5>
+                    <p class="card-text" style="text-align: left">{{ el.description}}</p>
+                  </div>
+            </div>
+        {% endfor %}
+{% endblock %}

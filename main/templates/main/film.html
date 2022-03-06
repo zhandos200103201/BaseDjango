@@ -1,0 +1,43 @@
+{% extends 'main/base.html'%}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block add %}
+nav-link
+{% endblock %}
+
+{% block main %}
+nav-link
+{% endblock %}
+
+{% block film %}
+nav-link active
+{% endblock %}
+
+{% block litera %}
+nav-link
+{% endblock %}
+
+{% block maths %}
+nav-link
+{% endblock %}
+
+{% block content %}
+    {% if task %}
+        {% for el in task %}
+            {% if el.type == 'Film' %}
+                 <div class="card" style="width: 18rem; min-width: 100%; margin-top: 50px">
+                      <img class="card-img-top" src="{{ el.link }}" alt="Card image cap">
+                      <div class="card-body" >
+                        <h5 class="card-title">{{ el.title }}</h5>
+                        <p class="card-text" style="text-align: left">{{ el.description}}</p>
+                      </div>
+                 </div>
+             {% endif %}
+        {% endfor %}
+    {% else %}
+        <h1>У нас нет записей</h1>
+    {% endif %}
+{% endblock %}
