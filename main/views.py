@@ -30,13 +30,34 @@ def maths(request):
 def toAdd(request):
     error = ''
     if request.method == 'POST':
-        form = CelebrityForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            error = 'Форма была неправильной'
+        if request.POST.get('type') == 'Literature':
+            form = LiteratureForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('literature')
+            else:
+                error = 'Форма была неправильной'
+        elif request.POST.get('type') == 'Maths':
+            form = MathsForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('maths')
+            else:
+                error = 'Форма была неправильной'
+        elif request.POST.get('type') == 'Film':
+            form = FilmForm(request.POST)
+            if form.is_valid():
+                form.save()
+                return redirect('film')
+            else:
+                error = 'Форма была неправильной'
 
     form = CelebrityForm()
+    if request.POST.get('type') == 'Literature':
+        form = LiteratureForm()
+    elif request.POST.get('type') == 'Maths':
+        form = MathsForm()
+    elif request.POST.get('type') == 'Film':
+        form = FilmForm()
     context = {'form': form, 'error': error}
     return render(request, 'main/create.html', context)
